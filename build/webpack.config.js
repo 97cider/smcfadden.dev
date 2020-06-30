@@ -27,6 +27,12 @@ module.exports = {
             'vue-style-loader',
             'css-loader'
           ]
+        },
+        {
+          test: /\.(jpg|png)$/,
+          use: {
+            loader: 'url-loader',
+          },
         }
       ]
     },
