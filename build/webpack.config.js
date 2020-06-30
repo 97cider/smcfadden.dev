@@ -12,6 +12,21 @@ module.exports = {
         {
           test: /\.vue$/,
           use: 'vue-loader'
+        },
+        {
+          test: /\.scss$/,
+          use: [
+            'vue-style-loader',
+            'css-loader',
+            'sass-loader'
+          ]
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'vue-style-loader',
+            'css-loader'
+          ]
         }
       ]
     },
