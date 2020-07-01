@@ -11,12 +11,12 @@ new Vue({
     ViewComponent () {
       const matchingView = routes[this.currentRoute]
       return matchingView
-        ? require('./pages/' + matchingView + '.vue')
-        : require('./pages/NotFound.vue')
+        ? require('./pages/' + matchingView + '.vue').default
+        : require('./pages/NotFound.vue').default
     }
   },
   render (h) {
-    return h(App)
+    return h(this.ViewComponent)
   }
 }).$mount('#app');
 
