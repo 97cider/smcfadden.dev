@@ -1,23 +1,22 @@
-import Vue from 'vue'
-import App from './pages/Intro.vue';
-import routes from './routes';
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+
+import Intro from './pages/Intro.vue';
+import Minimal from './pages/Minimal.vue';
+
+const routes = [
+  { path: '/', component: Intro },
+  { path: '/Gallery', component: Minimal }
+]
+
+const router = new VueRouter({
+  routes
+});
 
 new Vue({
-  el: '#app',
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      const matchingView = routes[this.currentRoute]
-      return matchingView
-        ? require('./pages/' + matchingView + '.vue').default
-        : require('./pages/NotFound.vue').default
-    }
-  },
-  render (h) {
-    return h(this.ViewComponent)
-  }
+  router
 }).$mount('#app');
 
 window.addEventListener('popstate', () => {

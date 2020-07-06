@@ -1,35 +1,32 @@
 <template>
   <div id="app">
-    <button v-on:click="isSimplified = !isSimplified">View a Simpler Experience</button>
-    <div v-if="isSimplified === true">
-      <img alt="Vue logo" src="src/assets/logo.png">
-      <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Renderer />
+    <img alt="Vue logo" src="src/assets/logo.png">
+    <div>[ sean mcfadden ]</div>
+    <div>This website is an interactive experience. If you wish to view a more simple experience, please click the "View Minimal" button below.</div>
+    <div>Please select your quality</div>
+    <div> 
+      <button>low</button>
+      <button>medium</button>
+      <button>high</button>
     </div>
+    <div>------------ or -------------</div>
+    <div>
+      <button>View Minimal</button>
+    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from '../components/HelloWorld.vue'
+import HelloWorld from '../components/HelloWorld.vue';
+import Renderer from '../components/Renderer.vue';
+import '../scss/style.scss';
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  },
-  data () {
-   return {
-     isSimplified : true
-   }
+    HelloWorld,
+    Renderer
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
